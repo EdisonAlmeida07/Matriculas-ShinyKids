@@ -7,7 +7,7 @@ export const environment = {
   
   firebaseConfig : {
 
-    apiKey: "AIzaSyAJR2KXSbPfCnQRK5XfbnFi5jGmLhuV_IM",
+    apiKey: "***utilizar tu apikey",
   
     authDomain: "ceshinykids.firebaseapp.com",
   
@@ -26,7 +26,7 @@ export const environment = {
   },
   firebaseConfig2 : {
 
-    apiKey: "AIzaSyAJR2KXSbPfCnQRK5XfbnFi5jGmLhuV_IM",
+    apiKey: "***utillizar tu apikey***",
   
     authDomain: "ceshinykids.firebaseapp.com",
   
