@@ -1,0 +1,92 @@
+<br>
+<span class="fs-2" style="color: black;">&nbsp;&nbsp;Paralelos</span>
+<br>
+<div class="container">
+    <div class="row" style="padding: 1.5%">
+        <!-- Botones para filtrar estudiantes -->
+        <div class="col-5 card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: rgb(89, 75, 122);">Inicial 1</h5>
+                <hr>
+                <img src="../../../assets/img/inicial1.png" alt="inicial1" style="width: 50%;">
+                <div class="text-end">
+                    <a class="btn btn-primary" (click)="filterStudentsByGrade('Inicial 1')">
+                        Mostrar listado 
+                    </a>
+                </div>
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;
+        <div class="col-5 card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: rgb(89, 75, 122);">Inicial 2</h5>
+                <hr>
+                <img src="../../../assets/img/inicial1.png" alt="inicial2" style="width: 50%;">
+                <div class="text-end">
+                    <a class="btn btn-primary" (click)="filterStudentsByGrade('Inicial 2')">
+                        Mostrar listado 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<div class="container">
+    <div class="row" style="padding: 0.5%">
+        <div class="col-5 card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: rgb(89, 75, 122);">Sala Cuna</h5>
+                <hr>
+                <img src="../../../assets/img/inicial1.png" alt="sala-cuna" style="width: 50%;">
+                <div class="text-end">
+                    <a class="btn btn-primary" (click)="filterStudentsByGrade('Sala Cuna')">
+                        Mostrar listado 
+                    </a>
+                </div>
+            </div>
+        </div>&nbsp;&nbsp;&nbsp;
+        <div class="col-5 card">
+            <div class="card-body">
+                <h5 class="card-title" style="color: rgb(89, 75, 122);">Sala Parvulitos</h5>
+                <hr>
+                <img src="../../../assets/img/inicial1.png" alt="sala-parvulitos" style="width: 50%;">
+                <div class="text-end">
+                    <a class="btn btn-primary" (click)="filterStudentsByGrade('Parvulitos')">
+                        Mostrar listado 
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>    
+</div>
+<br>
+<span class="fs-2" style="color: black;">&nbsp;&nbsp;Listado de estudiantes</span>
+<div class="container">
+    <!-- Tabla de estudiantes -->
+    <table class="table table-striped">
+        <thead>
+            <tr>
+            <th scope="col" style="width: 10%; text-align: center;">Código único</th>
+            <th scope="col" style="width: 25%; text-align: center;">Apellidos</th>
+            <th scope="col" style="width: 25%; text-align: center;">Nombres</th>
+            <th scope="col" style="width: 5%; text-align: center;">Paralelo</th>
+            <th scope="col" style="width: 35%; text-align: center;">Dirección</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Iteración sobre estudiantes filtrados -->
+            <tr *ngFor="let student of filteredStudents">
+                <td style="text-align: center;">{{ student.id }}</td>
+                <td style="text-align: center;">{{ student.apellidos }}</td>
+                <td style="text-align: center;">{{ student.nombres }}</td>
+                <th scope="row" style="text-align: center;">{{ student.grado }}</th>
+                <td style="text-align: center;">{{ student.direccion }}</td>
+            </tr>
+        </tbody>
+        <!-- Fila para mostrar el conteo de estudiantes filtrados -->
+        <tfoot>
+            <tr>
+                <th scope="col" colspan="5" class="text-end" style="background-color: #b0e48d;">Total de estudiantes: {{ filteredStudentCount }}</th>
+            </tr>
+        </tfoot>
+    </table>
+</div>

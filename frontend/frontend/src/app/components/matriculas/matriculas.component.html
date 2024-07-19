@@ -1,0 +1,268 @@
+<br>
+<span class="fs-2" style="color: black;">Matriculación</span>
+<br><br>
+<h5>Datos del estudiante</h5>
+<div class="container" style="background-color: #F4E9E9; border-radius: 10px;">
+    <div class="row">
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="studentFirstName" #nombres="ngModel" placeholder="Ej. Edison Romeo.com" [(ngModel)]="newStudent.nombres" required>
+                <span *ngIf="nombres.touched && !nombres.valid" style="color: red;">Nombres obligatorio!</span>
+                <label for="studentFirstName">Nombres</label>
+            </div>
+        </div>
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="studentLastName" #apellidos="ngModel" placeholder="Apellidos" [(ngModel)]="newStudent.apellidos" required>
+                <span *ngIf="apellidos.touched && !apellidos.valid" style="color: red;">Apellidos obligatorio!</span>
+                <label for="studentLastName">Apellidos</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="studentCedula" #cedula="ngModel" placeholder="Cédula" [(ngModel)]="newStudent.cedula" required>
+                <span *ngIf="cedula.touched && !cedula.valid" style="color: red;">Número de cédula obligatoria!</span>
+                <label for="studentCedula">Cédula</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="studentAddress" #direccion="ngModel" placeholder="Dirección" [(ngModel)]="newStudent.direccion" required>
+                <span *ngIf="direccion.touched && !direccion.valid" style="color: red;">Dirección obligatoria!</span>
+                <label for="studentAddress">Dirección</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <select class="form-select" name="studentBloodType" #tipoSangre="ngModel" [(ngModel)]="newStudent.tipoSangre" required>
+                    <option selected disabled>Selecciona el tipo de sangre</option>
+                    <option value="O+">O+</option>
+                    <option value="O-">O-</option>
+                    <option value="A+">A+</option>
+                    <option value="A-">A-</option>
+                    <option value="B+">B+</option>
+                    <option value="B-">B-</option>
+                    <option value="AB+">AB+</option>
+                    <option value="AB-">AB-</option>
+                </select>
+                <span *ngIf="tipoSangre.touched && !tipoSangre.valid" style="color: red;">Tipo de sangre requerida!</span>
+                <label for="tipoSangre">Tipo de Sangre</label>
+            </div>
+        </div>        
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="date" class="form-control" name="fechaNacimiento" #fechaNacimiento="ngModel" placeholder="Fecha de nacimiento" [(ngModel)]="newStudent.fechaNacimiento" required>
+                <span *ngIf="fechaNacimiento.touched && !fechaNacimiento.valid" style="color: red;">Fecha de nacimiento de sangre requerida!</span>
+                <label for="fechaNacimiento">Fecha de nacimiento</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <select class="form-select" name="grado" #grado="ngModel" [(ngModel)]="newStudent.grado" required>
+                    <option selected>Seleccionar paralelo</option>
+                    <option value="Inicial 1">Inicial 1</option>
+                    <option value="Inicial 2">Inicial 2</option>
+                    <option value="Sala Cuna">Sala Cuna</option>
+                    <option value="Sala Parvulitos">Sala Parvulitos</option>
+                </select>
+                <span *ngIf="grado.touched && !grado.valid" style="color: red;">Paralelo requerido!</span>
+                <label for="grado">Paralelo</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="yearLectivo" #yearLectivo="ngModel" placeholder="Año lectivo" [(ngModel)]="newStudent.yearLectivo" required>
+                <span *ngIf="yearLectivo.touched && !yearLectivo.valid" style="color: red;">Año lectivo requerido!</span>
+                <label for="yearLectivo">Año lectivo</label>
+            </div>
+        </div>        
+        <div class="col-4">
+            <span>Género:&nbsp;&nbsp;&nbsp;&nbsp;</span>
+            <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genderOptions" id="genderMale" value="Masculino" [(ngModel)]="newStudent.sexo">
+                <label class="form-check-label" for="genderMale">Masculino</label>
+              </div>
+              <div class="form-check form-check-inline">
+                <input class="form-check-input" type="radio" name="genderOptions" id="genderFemale" value="Femenino" [(ngModel)]="newStudent.sexo">
+                <label class="form-check-label" for="genderFemale">Femenino</label>
+            </div>
+        </div>
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="fotoCarnetVacunas">Carnet de vacunas</label>
+                <input type="file" class="form-control" id="carnetVacunas" (change)="handleFileInput($event, 'carnetVacunas')">
+              </div>
+        </div>
+        <div class="col-4">
+            <div class="input-group mb-3">
+                <label class="input-group-text" for="fotoStudent">Foto estudiante</label>
+                <input type="file" class="form-control" id="profileImage" (change)="handleFileInput($event, 'profileImage')">
+              </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<h5>Datos del padre</h5>
+<div class="container" style="background-color: #F4E9E9; border-radius: 10px;">
+    <div class="row">
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nombresP" placeholder="Nombres" [(ngModel)]="newStudent.padre.nombresP">
+                <label for="fatherFirstName">Nombres</label>
+            </div>
+        </div>
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="apellidosP" placeholder="Apellidos" [(ngModel)]="newStudent.padre.apellidosP">
+                <label for="fatherLastName">Apellidos</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="cedulaP" placeholder="Cédula" [(ngModel)]="newStudent.padre.cedulaP">
+                <label for="fatherCedula">Cédula</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="profesionP" placeholder="Profesión" [(ngModel)]="newStudent.padre.profesionP">
+                <label for="fatherProfession">Profesión</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="telefonoP" placeholder="Teléfono" [(ngModel)]="newStudent.padre.telefonoP">
+                <label for="fatherPhone">Teléfono</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="lugarTrabajoP" placeholder="Lugar de trabajo" [(ngModel)]="newStudent.padre.lugarTrabajoP">
+                <label for="fatherWorkplace">Lugar de trabajo</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="correoP" placeholder="E-mail" [(ngModel)]="newStudent.padre.correoP">
+                <label for="fatherEmail">E-mail</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="date" class="form-control" id="fechaNacP" placeholder="Fecha de nacimiento" [(ngModel)]="newStudent.padre.fechaNacP">
+                <label for="fatherBirthDate">Fecha de nacimiento</label>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<h5>Datos de la madre</h5>
+<div class="container" style="background-color: #F4E9E9; border-radius: 10px;">
+    <div class="row">
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" id="nombresM" placeholder="Nombres" [(ngModel)]="newStudent.madre.nombresM">
+                <label for="motherFirstName">Nombres</label>
+            </div>
+        </div>
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="apellidosM" placeholder="Apellidos" [(ngModel)]="newStudent.madre.apellidosM">
+                <label for="motherLastName">Apellidos</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="cedulaM" placeholder="Cédula" [(ngModel)]="newStudent.madre.cedulaM">
+                <label for="motherCedula">Cédula</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="profesionM" placeholder="Profesión" [(ngModel)]="newStudent.madre.profesionM">
+                <label for="motherProfession">Profesión</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="telefonoM" placeholder="Teléfono" [(ngModel)]="newStudent.madre.telefonoM">
+                <label for="motherPhone">Teléfono</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" id="lugarTrabajoM" placeholder="Lugar de trabajo" [(ngModel)]="newStudent.madre.lugarTrabajoM">
+                <label for="motherWorkplace">Lugar de trabajo</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="email" class="form-control" id="correoM" placeholder="E-mail" [(ngModel)]="newStudent.madre.correoM">
+                <label for="motherEmail">E-mail</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="date" class="form-control" id="FechaNacM" placeholder="Fecha de nacimiento" [(ngModel)]="newStudent.madre.FechaNacM">
+                <label for="motherBirthDate">Fecha de nacimiento</label>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<h5>Datos del representante legal</h5>
+<div class="container" style="background-color: #F4E9E9; border-radius: 10px;">
+    <div class="row">
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="nombresR" #nombresR="ngModel" placeholder="Nombres" [(ngModel)]="newStudent.representanteLegal.nombresR" required>
+                <span *ngIf="nombresR.touched && !nombresR.valid" style="color: red;">Nombres obligatorios!</span>
+                <label for="legalRepresentativeFirstName">Nombres</label>
+            </div>
+        </div>
+        <div class="col-6" style="padding-top: 1%;">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="apellidosR" #apellidosR="ngModel" placeholder="Apellidos" [(ngModel)]="newStudent.representanteLegal.apellidosR" required>
+                <span *ngIf="apellidosR.touched && !apellidosR.valid" style="color: red;">Apellidos obligatorios!</span>
+                <label for="legalRepresentativeLastName">Apellidos</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="direccionR" #direccionR="ngModel" placeholder="Dirección" [(ngModel)]="newStudent.representanteLegal.direccionR" required>
+                <span *ngIf="direccionR.touched && !direccionR.valid" style="color: red;">Dirección obligatoria!</span>
+                <label for="legalRepresentativeCedula">Dirección</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="telefonoR" #telefonoR="ngModel" placeholder="Teléfono" [(ngModel)]="newStudent.representanteLegal.telefonoR" required>
+                <span *ngIf="telefonoR.touched && !telefonoR.valid" style="color: red;">Número de teléfono obligatorio!</span>
+                <label for="legalRepresentativeProfession">Teléfono</label>
+            </div>
+        </div>
+        <div class="col-6 mb-3">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="correoR" #correoR="ngModel" placeholder="Correo" [(ngModel)]="newStudent.representanteLegal.correoR" required>
+                <span *ngIf="correoR.touched && !correoR.valid" style="color: red;">Correo obligatorio!</span>
+                <label for="legalRepresentativePhone">Correo</label>
+            </div>
+        </div>
+        <div class="col-6">
+            <div class="form-floating">
+                <input type="text" class="form-control" name="parentesco" #parentesco="ngModel" placeholder="Parentesco" [(ngModel)]="newStudent.representanteLegal.parentesco" required>
+                <span *ngIf="parentesco.touched && !parentesco.valid" style="color: red;">Dato obligatorio!</span>
+                <label for="legalRepresentativeBirthDate">Parentesco</label>
+            </div>
+        </div>
+    </div>
+</div>
+<br><br>
+<div class="d-flex flex-row-reverse">
+    <div class="p-2">
+      <button type="button" class="btn btn-success btn-lg" (click)="addStudent()">Guardar registro</button>
+    </div>
+    <div class="p-2">
+        <button type="button" class="btn btn-warning btn-lg" (click)="printData()">Imprimir</button>
+    </div>
+</div>

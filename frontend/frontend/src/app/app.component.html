@@ -1,0 +1,14 @@
+<div class="d-flex min-vh-100" *ngIf="!isLoginRoute">
+  <!-- Sidebar -->
+  <app-general class="sidebar flex-shrink-0 fixed-sidebar"></app-general>
+
+  <!-- Contenido principal -->
+  <div class="content flex-grow-1 p-3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<!-- Mostrar solo el contenido principal para la ruta de login -->
+<div *ngIf="isLoginRoute" class="min-vh-100">
+  <router-outlet></router-outlet>
+</div>

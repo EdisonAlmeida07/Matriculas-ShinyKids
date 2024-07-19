@@ -1,0 +1,30 @@
+<br>
+<span class="fs-2" style="color: black;">&nbsp;&nbsp;Listado de estudiantes</span>
+<br><br>
+<div class="d-flex justify-content-center">
+    <span class="input-group-text"><i class="fas fa-search"></i></span>
+    <input type="text" class="form-control" name="searchText" placeholder="Buscar..." [(ngModel)]="searchText" style="width: 50%;">
+</div>
+<br>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th scope="col" style="width: 10%; text-align: center;">Código único</th>
+            <th scope="col" style="width: 25%; text-align: center;">Apellidos</th>
+            <th scope="col" style="width: 25%; text-align: center;">Nombres</th>
+            <th scope="col" style="width: 5%; text-align: center;">Paralelo</th>
+            <th scope="col" style="width: 35%; text-align: center;">Dirección</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let student of students | filtered: searchText">
+            <td style="text-align: center;">{{ student.id }}</td>
+            <td style="text-align: center;">{{ student.apellidos }}</td>
+            <td style="text-align: center;">{{ student.nombres }}</td>
+            <td style="text-align: center;">{{ student.grado }}</td>
+            <td style="text-align: center;">{{ student.direccion }}</td>
+        </tr>
+        </tbody>
+    </table>
+</div>

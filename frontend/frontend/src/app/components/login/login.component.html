@@ -1,0 +1,40 @@
+<section class="vh-100">
+  <div class="container-fluid h-100">
+    <div class="row h-100">
+      <div class="col-12 col-md-4 d-flex justify-content-left align-items-center p-0">
+        <img src="../../../assets/img/login.png" class="img-fluid w-90 h-100" alt="Sample image" style="object-fit: cover;">
+      </div>
+      <div class="col-12 col-md-8 d-flex justify-content-center align-items-center">
+        <form class="w-75" (ngSubmit)="onSubmit()">
+          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start mb-3">
+            <p class="lead fw-normal mb-0 me-3" style="font-family: Verdana, Geneva, Tahoma, sans-serif;"><strong>Log In</strong></p>
+          </div>
+
+          <div>
+            <p><strong>Por favor ingresa tus credenciales</strong></p>
+          </div>
+
+          <!-- Email input -->
+          <div class="form-outline mb-4">
+            <input type="email" id="mail" class="form-control" [(ngModel)]="email" name="email" required placeholder="Ingrese su correo registrado" />
+            <label for="mail">E-mail</label>
+          </div>
+
+          <!-- Password input -->
+          <div class="form-outline mb-3">
+            <input type="password" id="password" class="form-control" [(ngModel)]="password" name="password" required placeholder="Ingrese su contraseña" />
+            <label for="password">Password</label>
+          </div>
+
+          <div class="text-center text-lg-start mt-4 pt-2">
+            <button type="submit" class="btn btn-primary btn-lg" style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button>
+            <br><br><br>
+            <p class="small fw-bold mt-2 pt-1 mb-0">¿Necesitas ayuda? 
+              <a href="#!" class="link-danger">Envía un mensaje al administrador</a>
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
